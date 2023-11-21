@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px
-import os
+import os 
 import warnings
 
 warnings.filterwarnings('ignore')
@@ -18,7 +18,7 @@ if fl is not None:
     st.write(filename)
     df = pd.read_excel(filename)
 else:
-    os.chdir(r"C:\Users\BEST\OneDrive\Desktop\projects\Electric - Copy")
+    os.chdir(r"C:\Users\BEST\OneDrive\Desktop\projects\SEA")
     df = pd.read_excel("electricity.xlsx")
 
 
