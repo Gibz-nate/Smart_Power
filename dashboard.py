@@ -80,7 +80,7 @@ dataset=pd.read_excel('electricity.xlsx')
 
 st.sidebar.header("Filter By:")
 
-amount=st.sidebar.multiselect("Filter By Amount:",
+amount=st.sidebar.multiselect("Amount:",
                                  options=dataset["Amount"],
                                  default=dataset["Amount"])
 
@@ -123,47 +123,47 @@ right_column.plotly_chart(amount_by_category_piechart,use_container_width=True)
 dataset=pd.read_excel('electricity.xlsx')
 
 
-st.sidebar.header("Filter By:")
 
-county=st.sidebar.multiselect("Filter By County:",
-                                 options=dataset["County"],
-                                 default=dataset["County"])
+
+SubCounty=st.sidebar.multiselect("SubCounty:",
+                                 options=dataset["SubCounty"],
+                                 default=dataset["SubCounty"])
 
 selection_query=dataset.query(
-    "County== @county"
+    "SubCounty== @SubCounty"
 )
 
-st.title("Electricity Consumption per County")
+st.title("Electricity Consumption per SubCounty")
 
-total_wattage=(selection_query["watts"].sum())
-counties=(selection_query["County"]).sum(),
+total_wattage=(selection_query["watts(GWH)"].sum())
+counties=(selection_query["SubCounty"]).sum(),
 
 first_column,second_column=st.columns(2)
 
 with first_column:
     st.markdown("### Total watts")
-    st.subheader(f'{total_wattage}KWH')
+    st.subheader(f'{total_wattage} GWH')
 #with second_column:
    # st.markdown("### County")
    # st.subheader(f'{counties}')
 
 st.markdown("---")
 #Barchart
-amount_by_category=(selection_query.groupby(by=["watts"]).sum()[["County"]])
+watts_by_category=(selection_query.groupby(by=["SubCounty"]).sum()[["watts(GWH)"]])
 
-amount_by_category_barchart=px.bar(amount_by_category,
-                                   x="County",
-                                   y=amount_by_category.index,
-                                   title="Watts By Category",
-                                   color_discrete_sequence=["#17f50c"],
+watts_by_category_barchart=px.bar(watts_by_category,
+                                   x="watts(GWH)",
+                                   y=watts_by_category.index,
+                                   title="watts(GWH) By Category",
+                                   color_discrete_sequence=["#6495ED"],
                                    )
-amount_by_category_barchart.update_layout(plot_bgcolor ="rgba(0,0,0,0)",xaxis=(dict(showgrid=False)))
+watts_by_category_barchart.update_layout(plot_bgcolor ="rgba(0,0,0,0)",xaxis=(dict(showgrid=False)))
 #Piechart
-amount_by_category_piechart=px.pie(amount_by_category, names=amount_by_category.index,values="County",title="Watts % By Category",hole=.3,color=amount_by_category.index,color_discrete_sequence=px.colors.sequential.RdPu_r)
+watts_by_category_piechart=px.pie(watts_by_category, names=watts_by_category.index,values="watts(GWH)",title="watts(GWH) % By Category",hole=.3,color=watts_by_category.index,color_discrete_sequence=px.colors.sequential.Peach)
 
 left_column,right_column=st.columns(2)
-left_column.plotly_chart(amount_by_category_barchart,use_container_width=True)
-right_column.plotly_chart(amount_by_category_piechart,use_container_width=True)
+left_column.plotly_chart(watts_by_category_barchart,use_container_width=True)
+right_column.plotly_chart(watts_by_category_piechart,use_container_width=True)
 
-st.line_chart(dataset, x="County", y="watts")
+st.line_chart(dataset, x="SubCounty", y="watts(GWH)")
 print(dataset)
