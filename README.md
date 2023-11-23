@@ -14,8 +14,7 @@ Welcome to the Electric Usage Analytics System! This system is designed to help 
    - [Data Analysis](#data-analysis)
    - [Visualization](#visualization)
 5. [Contributing](#contributing)
-6. [License](#license)
-7. [Contact](#contact)
+6. [Contact](#contact)
 
 ## Introduction
 
@@ -64,14 +63,9 @@ Ensure you have the following installed before using the Electric Usage Analytic
    ```bash
    python main.py upload -f your_data.csv
    ```
+   ``` alternatively browse files ```
 
-2. Analyze the data:
-
-   ```bash
-   python main.py analyze
-   ```
-
-3. Run the application:
+2. Run the application:
 
    ```bash
    streamlit run dashboard.py
