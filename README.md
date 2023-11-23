@@ -1,5 +1,5 @@
 ﻿# Smart_Electricity_Analytics 📊⚡️
-Welcome to the Electric Usage Analytics System! This system is designed to help you analyze and visualize electric usage data efficiently. Whether you're a homeowner, business owner, or energy enthusiast, this system provides insights into your electricity consumption patterns.
+Welcome to the Electric Usage Analytics System! This system is designed to help you analyze and visualize electric usage data efficiently. Whether you're a homeowner, business owner, or energy enthusiast, this system provides insights into your electricity consumption patterns to save on cost power and enhance power efficiency.
 
 ## Table of Contents
 
