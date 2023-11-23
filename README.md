@@ -100,7 +100,7 @@ We welcome contributions from the community! Whether it's bug fixes, feature enh
 
 ## Contact
 
-If you have any questions or suggestions, feel free to reach out to us at electric.analytics@example.com.
+If you have any questions or suggestions, feel free to reach out at gibzrival@gmail.com.
 
 Happy analyzing! ⚡️📈
 
